@@ -1,0 +1,41 @@
+.kcBodyClass {
+  background: none !important;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* CONTAINER */
+.kc-login-container {
+  display: flex;
+  height: 100vh;
+  padding: 0;
+}
+
+.kc-login-container__image-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  background-image: url("public/logo-image.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.kc-login-container__form-wrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.kc-login-container__form-card {
+  
+}
+
+
+/* LOGIN */
+
+
+/* LOGIN RESET PASSWORD */
+
+
+
