@@ -55,7 +55,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
 
     return (
         <div className={kcClsx("kcLoginClass")}>
-            <div className="kc-login-container__form-wrapper">
+            <div className="kc-login-container__card-wrapper">
                 <div className={kcClsx("kcFormCardClass")}>
                     <header className={kcClsx("kcFormHeaderClass")}>
                         {enabledLanguages.length > 1 && (
@@ -97,7 +97,7 @@ export default function Template(props: TemplateProps<KcContext, I18n>) {
                         )}
                         {(() => {
                             const node = !(auth !== undefined && auth.showUsername && !auth.showResetCredentials) ? (
-                                <h1 id="kc-page-title">{headerNode}</h1>
+                                <h1 id="kc-page-title" className="kc-login-card__header-text">{headerNode}</h1>
                             ) : (
                                 <div id="kc-username" className={kcClsx("kcFormGroupClass")}>
                                     <label id="kc-attempted-username">{auth.attemptedUsername}</label>

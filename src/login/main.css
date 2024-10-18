@@ -1,6 +1,11 @@
-.kcBodyClass {
+:root {
+  --color-primary: #0070AD;
+}
+
+.kc-body {
   background: none !important;
   font-family: "Ubuntu", sans-serif;
+  overflow: hidden;
 }
 
 /* CONTAINER */
@@ -18,24 +23,62 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
 }
 
-.kc-login-container__form-wrapper {
+.kc-login-container__card-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex: 1;
 }
 
-.kc-login-container__form-card {
-  
+.kc-login-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 32.813rem;
+  height: fit-content;
 }
 
+.kc-login-card__header-text {
+  margin: 0 !important;
+  width: 100%;
+  text-align: left;
+  font-size: 2.5rem;
+  line-height: 3.75rem;
+  letter-spacing: 0.016rem;
+  color: var(--color-primary);
+}
 
-/* LOGIN */
+.kc-login-card__logo {
+  font-weight: 500;
+}
 
+.kc-login-card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-/* LOGIN RESET PASSWORD */
+.kc-login-card__form-group {
+}
+
+/* IDs */
+#kc-content-wrapper {
+  margin: 0;
+}
+#kc-form-wrapper {
+  margin: 0;
+}
+#kc-locale {
+  position: absolute;
+  top: 0;
+  margin-top: 2.5rem;
+}
+#language-switch1 {
+  margin-top: 0.5rem;
+  right: auto;
+}
 
 
 

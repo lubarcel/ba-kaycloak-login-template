@@ -28,7 +28,13 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
             doUseDefaultCss={doUseDefaultCss}
             classes={classes}
             displayMessage={!messagesPerField.existsError("username", "password")}
-            headerNode={msg("loginAccountTitle")}
+            headerNode={
+                <>
+                    {msgStr("welcomeMsgP1")}
+                    <span className="kc-login-card__logo">{msgStr("nameLogo")}</span>
+                    {msgStr("welcomeMsgP2")}
+                </>
+            }
             displayInfo={realm.password && realm.registrationAllowed && !registrationDisabled}
             infoNode={
                 <div id="kc-registration-container">
@@ -79,6 +85,7 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                     {realm.password && (
                         <form
                             id="kc-form-login"
+                            className="kc-login-card__form"
                             onSubmit={() => {
                                 setIsLoginButtonDisabled(true);
                                 return true;

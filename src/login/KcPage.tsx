@@ -64,6 +64,9 @@ export default function KcPage(props: { kcContext: KcContext }) {
 }
 
 const classes = {
-    kcLoginClass: "login-pf-page kc-login-container",
-    kcFormCardClass: "card-pf kc-login-container__form-card",
+    kcBodyClass: "kc-body",
+    kcLoginClass: "kc-login-container",
+    kcFormCardClass: "kc-login-card",
+    kcFormHeaderClass: "kc-login-card__header",
+    kcFormGroupClass: "kc-login-card__form-group",
 } satisfies { [key in ClassKey]?: string };
