@@ -69,4 +69,7 @@ const classes = {
     kcFormCardClass: "kc-login-card",
     kcFormHeaderClass: "kc-login-card__header",
     kcFormGroupClass: "kc-login-card__form-group",
+    kcInputGroup: "pf-c-input-group kc-login-card__password-group", 
+    kcInputClass: "pf-c-form-control kc-login-card__input",
+    kcFormPasswordVisibilityButtonClass: "pf-c-button pf-m-control kc-login-card__password-visibility",
 } satisfies { [key in ClassKey]?: string };

@@ -114,59 +114,66 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                         aria-invalid={messagesPerField.existsError("username", "password")}
                                         placeholder={msgStr("usernamePlaceholder")}
                                     />
-                                    {messagesPerField.existsError("username", "password") 
-                                        ? (
-                                            <span
-                                                id="input-error"
-                                                className={kcClsx("kcInputErrorMessageClass")}
-                                                aria-live="polite"
-                                                dangerouslySetInnerHTML={{
-                                                    __html: kcSanitize(messagesPerField.getFirstError("username", "password"))
-                                                }}
-                                            />
-                                        ) : (
-                                            <span
-                                                className={"passwrod-info"}
-                                                aria-live="polite"
-                                            >
-                                                {msg("passwordInfo")}
-                                            </span>
-                                        )}
+                                    {messagesPerField.existsError("username", "password") && (
+                                        <span
+                                            id="input-error"
+                                            className={kcClsx("kcInputErrorMessageClass")}
+                                            aria-live="polite"
+                                            dangerouslySetInnerHTML={{
+                                                __html: kcSanitize(messagesPerField.getFirstError("username", "password"))
+                                            }}
+                                        />
+                                    )}
                                 </div>
                             )}
 
-                            <div className={kcClsx("kcFormGroupClass")}>
-                                <label htmlFor="password" className={kcClsx("kcLabelClass")}>
-                                    {msg("password")}
-                                </label>
-                                <PasswordWrapper kcClsx={kcClsx} i18n={i18n} passwordInputId="password">
-                                    <input
-                                        tabIndex={3}
-                                        id="password"
-                                        className={kcClsx("kcInputClass")}
-                                        name="password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        aria-invalid={messagesPerField.existsError("username", "password")}
-                                        placeholder={msgStr("passwordPlaceholder")}
-                                    />
-                                </PasswordWrapper>
-                                {usernameHidden && messagesPerField.existsError("username", "password") && (
-                                    <span
-                                        id="input-error"
-                                        className={kcClsx("kcInputErrorMessageClass")}
-                                        aria-live="polite"
-                                        dangerouslySetInnerHTML={{
-                                            __html: kcSanitize(messagesPerField.getFirstError("username", "password"))
-                                        }}
-                                    />
-                                )}
+                            <div className="kc-login-card__password-container">
+                                <div className={kcClsx("kcFormGroupClass")}>
+                                    <label htmlFor="password" className={kcClsx("kcLabelClass")}>
+                                        {msg("password")}
+                                    </label>
+                                    <PasswordWrapper kcClsx={kcClsx} i18n={i18n} passwordInputId="password">
+                                        <input
+                                            tabIndex={3}
+                                            id="password"
+                                            className={kcClsx("kcInputClass") + " kc-login-card__input--no-right-border"}
+                                            name="password"
+                                            type="password"
+                                            autoComplete="current-password"
+                                            aria-invalid={messagesPerField.existsError("username", "password")}
+                                            placeholder={msgStr("passwordPlaceholder")}
+                                        />
+                                    </PasswordWrapper>
+                                    {usernameHidden && messagesPerField.existsError("username", "password") ? (
+                                        <span
+                                            id="input-error"
+                                            className={kcClsx("kcInputErrorMessageClass")}
+                                            aria-live="polite"
+                                            dangerouslySetInnerHTML={{
+                                                __html: kcSanitize(messagesPerField.getFirstError("username", "password"))
+                                            }}
+                                        />
+                                    ) : (
+                                        <span className={"passwrod-info"} aria-live="polite">
+                                            {msg("passwordInfo")}
+                                        </span>
+                                    )}
+                                </div>
+                                <div className={kcClsx("kcFormOptionsWrapperClass")}>
+                                    {realm.resetPasswordAllowed && (
+                                        <span className="kc-login-card__forgot">
+                                            <a tabIndex={5} href={url.loginResetCredentialsUrl}>
+                                                {msg("doForgotPassword")}
+                                            </a>
+                                        </span>
+                                    )}
+                                </div>
                             </div>
 
                             <div className={kcClsx("kcFormGroupClass", "kcFormSettingClass")}>
                                 <div id="kc-form-options">
                                     {realm.rememberMe && !usernameHidden && (
-                                        <div className="checkbox">
+                                        <div className="checkbox kc-login-card__checkbox">
                                             <label>
                                                 <input
                                                     tabIndex={5}
@@ -174,19 +181,10 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                                     name="rememberMe"
                                                     type="checkbox"
                                                     defaultChecked={!!login.rememberMe}
-                                                />{" "}
+                                                />
                                                 {msg("rememberMe")}
                                             </label>
                                         </div>
-                                    )}
-                                </div>
-                                <div className={kcClsx("kcFormOptionsWrapperClass")}>
-                                    {realm.resetPasswordAllowed && (
-                                        <span>
-                                            <a tabIndex={6} href={url.loginResetCredentialsUrl}>
-                                                {msg("doForgotPassword")}
-                                            </a>
-                                        </span>
                                     )}
                                 </div>
                             </div>
@@ -231,6 +229,7 @@ function PasswordWrapper(props: { kcClsx: KcClsx; i18n: I18n; passwordInputId: s
             {children}
             <button
                 type="button"
+                tabIndex={4}
                 className={kcClsx("kcFormPasswordVisibilityButtonClass")}
                 aria-label={msgStr(isPasswordRevealed ? "hidePassword" : "showPassword")}
                 aria-controls={passwordInputId}

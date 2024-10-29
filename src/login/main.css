@@ -1,9 +1,14 @@
 :root {
   --color-primary: #0070AD;
+  --color-outline: #009CF1;
+  --color-background: #FAFAFA;
+  --color-input-borders: #ECECEC;
+  --color-white: #FFFFFF;
+  --color-text-strong: #1C1C1C;
 }
 
 .kc-body {
-  background: none !important;
+  background: none var(--color-background) !important;
   font-family: "Ubuntu", sans-serif;
   overflow: hidden;
 }
@@ -32,6 +37,8 @@
   flex: 1;
 }
 
+
+/* LOGIN CARD */
 .kc-login-card {
   display: flex;
   flex-direction: column;
@@ -63,6 +70,65 @@
 .kc-login-card__form-group {
 }
 
+.kc-login-card__password-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kc-login-card__password-group {
+  border-radius: 0.25rem;
+}
+
+.kc-login-card__input {
+  height: 2.5rem !important;
+  padding-block: 0.5rem !important;
+  padding-left: 1rem;
+  border: 0.063rem solid var(--color-input-borders);
+  border-radius: 0.25rem;
+  &:focus-visible {
+    outline-color: var(--color-outline);
+  }
+}
+
+.kc-login-card__input--no-right-border {
+  border-right: none;
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.kc-login-card__password-visibility {
+  border-width: 0.063rem;
+  border-style: solid;
+  border-color: var(--color-input-borders) !important;
+  border-radius: 0 0.25rem 0.25rem 0;
+  border-left: none;
+  &:focus-visible {
+    outline-color: var(--color-outline);
+  }
+  &::after {
+    border: none;
+  }
+}
+
+.kc-login-card__forgot {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.kc-login-card__checkbox {
+  margin: 0;
+  font-size: 1rem;
+  & label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    color: var(--color-text-strong);
+  }
+}
+
+
+
 /* IDs */
 #kc-content-wrapper {
   margin: 0;
@@ -79,6 +145,15 @@
   margin-top: 0.5rem;
   right: auto;
 }
-
+#rememberMe {
+  position: static;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  &:focus-visible {
+    outline: 0.15rem solid var(--color-outline);
+    outline-offset: 0.01rem;
+  }
+}
 
 
