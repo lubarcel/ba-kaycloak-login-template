@@ -191,15 +191,27 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
 
                             <div id="kc-form-buttons" className={kcClsx("kcFormGroupClass")}>
                                 <input type="hidden" id="id-hidden-input" name="credentialId" value={auth.selectedCredential} />
-                                <input
+                                <button
                                     tabIndex={7}
                                     disabled={isLoginButtonDisabled}
                                     className={kcClsx("kcButtonClass", "kcButtonPrimaryClass", "kcButtonBlockClass", "kcButtonLargeClass")}
                                     name="login"
                                     id="kc-login"
                                     type="submit"
-                                    value={msgStr("doLogIn")}
-                                />
+                                >
+                                    {msgStr("doLogIn")}
+                                </button>
+                                <button
+                                    tabIndex={7}
+                                    disabled={isLoginButtonDisabled}
+                                    className={kcClsx("kcButtonClass", "kcButtonDefaultClass", "kcButtonBlockClass", "kcButtonLargeClass")}
+                                    name="login"
+                                    id="kc-login"
+                                    type="button"
+                                    onClick={() => {}}
+                                >
+                                    {msgStr("doRegister")}
+                                </button>
                             </div>
                         </form>
                     )}

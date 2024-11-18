@@ -72,4 +72,8 @@ const classes = {
     kcInputGroup: "pf-c-input-group kc-login-card__password-group", 
     kcInputClass: "pf-c-form-control kc-login-card__input",
     kcFormPasswordVisibilityButtonClass: "pf-c-button pf-m-control kc-login-card__password-visibility",
+    kcButtonClass: "kc-button",
+    kcButtonPrimaryClass: "kc-button--primary",
+    kcButtonDefaultClass: "kc-button--secondary",
+    kcButtonLargeClass: "w-full",
 } satisfies { [key in ClassKey]?: string };
